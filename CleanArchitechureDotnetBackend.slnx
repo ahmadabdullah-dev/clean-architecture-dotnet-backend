@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="API/API.csproj" />
+  <Project Path="Domain/Domain.csproj" Id="c03ac7d4-d4f6-4a2b-a08d-84a7de3c6a03" />
+</Solution>
