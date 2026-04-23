@@ -9,13 +9,18 @@ public sealed class UserEntity : IdentityUser
     public string FullName => $"{FirstName} {LastName}";
     public DateOnly DateOfBirth { get; private set; }
     public UserRole Role { get; private set; } = UserRole.Member;
-    public DateTimeOffset CreatedAt { get; }
+    public DateTimeOffset CreatedAt { get; private set; }
     public DateTimeOffset? UpdatedAt { get; private set; }
-   
+
     private UserEntity() { }
+
 
     public UserEntity(string email, string firstName, string lastName, DateOnly dateOfBirth, UserRole role = UserRole.Member)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(email);
+        ArgumentException.ThrowIfNullOrWhiteSpace(firstName);
+        ArgumentException.ThrowIfNullOrWhiteSpace(lastName);
+
         Email = email.Trim().ToLowerInvariant();
         UserName = Email;
         FirstName = firstName.Trim();
@@ -23,5 +28,22 @@ public sealed class UserEntity : IdentityUser
         DateOfBirth = dateOfBirth;
         Role = role;
         CreatedAt = DateTimeOffset.UtcNow;
+    }
+
+    public void UpdateProfile(string firstName, string lastName, DateOnly dateOfBirth)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(firstName);
+        ArgumentException.ThrowIfNullOrWhiteSpace(lastName);
+
+        FirstName = firstName.Trim();
+        LastName = lastName.Trim();
+        DateOfBirth = dateOfBirth;
+        UpdatedAt = DateTimeOffset.UtcNow;
+    }
+
+    public void ChangeRole(UserRole role)
+    {
+        Role = role;
+        UpdatedAt = DateTimeOffset.UtcNow;
     }
 }
