@@ -1,10 +1,9 @@
 # Clean Architechure dotnet backend
 
 ## Overview
-A  clean .NET backend with clean architechure principles, ensuring separation of concerns and maintainability across layers.
-
+A  clean .NET backend with clean architechure principles, ensuring separation of concerns and maintainability across layers. Includes Identity-based authentication,  and a scalable modular structure designed for real-world applications.
 ## Project Structure
-
+---
 ### Domain
 The innermost layer with no external dependencies. Contains:
 
@@ -18,3 +17,4 @@ The innermost layer with no external dependencies. Contains:
 ### Packages
 - **MediatR** — mediator pattern for CQRS command/query dispatching and domain event handling
 - **Microsoft.EntityFrameworkCore.Identity** — identity and user management primitives
+---
