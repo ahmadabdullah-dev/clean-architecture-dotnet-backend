@@ -1,5 +1,4 @@
 using System.Text.RegularExpressions;
-using Domain.Exceptions.Common;
 
 namespace Domain.ValueObjects.Contact;
 

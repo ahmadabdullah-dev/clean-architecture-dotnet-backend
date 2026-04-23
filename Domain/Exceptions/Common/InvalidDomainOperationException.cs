@@ -1,5 +1,4 @@
-using Domain.Exceptions.Common;
-
+namespace Domain.Exceptions.Common;
 public sealed class InvalidDomainOperationException : DomainException
 {
     public string Operation { get; }

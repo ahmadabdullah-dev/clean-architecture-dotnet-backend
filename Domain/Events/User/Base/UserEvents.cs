@@ -1,7 +1,4 @@
-﻿using Domain.Enums.User;
-using Domain.Events.Common;
-
-namespace Domain.Events.User.Base;
+﻿namespace Domain.Events.User.Base;
 
 public sealed record UserCreatedEvent(
     string UserId,
